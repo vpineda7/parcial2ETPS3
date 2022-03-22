@@ -1,6 +1,6 @@
-# spotifyclone
+# Parcial practico Ev2 - ETPS3
 
-A new Flutter project.
+Proyecto flutter con especificaciones de acuerdo a los solicitado y aplicando conocimientos adquiridos en materia 
 
 ## Getting Started
 
