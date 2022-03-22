@@ -5,7 +5,7 @@ import 'package:spotifyclone/paginas/carrito.dart';
 import 'package:spotifyclone/paginas/home.dart';
 import '../constantes/const.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class FurnitureDetails extends StatefulWidget {
   final dynamic furniture;
@@ -80,40 +80,53 @@ class _FurnitureDetailsState extends State<FurnitureDetails> {
                              ],
                             
                           ),
-                          SizedBox(height:10),
+                          SizedBox(height:8),
+                          Row(children: [
+                          
+                            RatingBar.builder(
+                              wrapAlignment: WrapAlignment.start,
+                              itemSize: 16,
+                              initialRating: 4,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              
+                              ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+
+                              },
+                            ),
+                            Text(
+                              "200 Reviews", 
+                              style: TextStyle(
+                                fontSize: 9
+                              ),
+                            )  
+                          ],),
+                          SizedBox(height:8),
                           Text(
                             widget.furniture['description'],
                             style: TextStyle(
                                 fontSize: 12,
-                                height: 2,
+                                height: 1.5,
                                 color: Colors.black,
-                                fontWeight: FontWeight.w600),
+                                ),
                           ),
                           SizedBox(height: 20,),
-                          ElevatedButton(
-                            
-                            style: ButtonStyle(
-                              
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                                Color.fromRGBO(172, 147, 93, 1),
-                                                ),
-                              shape: MaterialStateProperty.all<OutlinedBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                              ),
-                              
-                              padding: MaterialStateProperty.all<EdgeInsets>(
-                                EdgeInsets.symmetric(
-                                  horizontal: 125.0,
-                                  vertical: 20.0,
-                                ),
-                              ), 
-                            ),
-                            
-                            child: Text("Comprar", style:TextStyle(fontSize: 17),),
-                            
-                            onPressed: () {
+                          ElevatedButton.icon(
+                          icon: Icon(
+                            FeatherIcons.shoppingBag,
+                            color: Colors.white,// Color.fromRGBO(172, 147, 93, 1),
+                            size: 17.0,
+                          ),
+                          label: Text('Comprar', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
+                          onPressed: () {
                               Navigator.push(
                               context,
                               PageTransition(
@@ -121,9 +134,28 @@ class _FurnitureDetailsState extends State<FurnitureDetails> {
                                 child: Carrito(),
                                 type: PageTransitionType.fade)
                               ); 
-                            },
-                          )
-                          
+                          },
+                          style: ButtonStyle(
+
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                              Color.fromRGBO(172, 147, 93, 1),
+                                              ),
+                            shape: MaterialStateProperty.all<OutlinedBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+
+                              ),
+                            ),
+                            
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.symmetric(
+                                horizontal: 120.0,
+                                vertical: 20.0,
+                              ),
+                            ), 
+                          ),
+                        
+                          ),                          
                         ]),
                     ),
               ),
