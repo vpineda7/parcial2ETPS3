@@ -67,7 +67,7 @@ class _FurnitureDetailsState extends State<FurnitureDetails> {
                                Text(
                                   widget.furniture['name'],
                                   style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w600),
                                 ),Text(
@@ -80,10 +80,12 @@ class _FurnitureDetailsState extends State<FurnitureDetails> {
                              ],
                             
                           ),
+                          SizedBox(height:10),
                           Text(
                             widget.furniture['description'],
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 12,
+                                height: 2,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600),
                           ),
@@ -103,8 +105,8 @@ class _FurnitureDetailsState extends State<FurnitureDetails> {
                               
                               padding: MaterialStateProperty.all<EdgeInsets>(
                                 EdgeInsets.symmetric(
-                                  horizontal: 130.0,
-                                  vertical: 25.0,
+                                  horizontal: 125.0,
+                                  vertical: 20.0,
                                 ),
                               ), 
                             ),
